@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- * Individual text control.
+ * Individual range control.
  *
  * Note: This is only used for the value of a search
  * parameter.
