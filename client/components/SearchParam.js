@@ -101,7 +101,11 @@ class SearchParam extends Component {
             {reducer === 'range' ? (
               <RangeControl value={value} handleChange={this.handleRange} />
             ) : (
-              <TextControl value={value} handleChange={this.handleText} />
+              <TextControl
+                type={selectedName.type === 'string' ? 'text' : 'number'}
+                value={value}
+                handleChange={this.handleText}
+              />
             )}
           </Fragment>
         )}
