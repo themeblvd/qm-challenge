@@ -1,8 +1,4 @@
-# MERN Boilerplate
-
-Managing a project structure that handles the whole stack involves a lot of different descisions to be made, with a lot of potential variations... especially in the full-stack JavaScript world. So here's my working MERN boilerplate.
-
-If you're looking for simpler starter for just setting up a client-side, static React app, check out my [React boilerplate](https://github.com/themeblvd/react-boilerplate).
+# Quantum Metrics Exercise
 
 ## Quick Start
 
@@ -21,8 +17,7 @@ If you're looking for simpler starter for just setting up a client-side, static 
     * `components/` - React components.
     * `store/` - Redux store files.
     * `public/` - Compiled React app, for development.
-* `server/` - **Server files, utilizing Express and Mongoose.**
-    * `models/` -  Mongoose schemas.
+* `server/` - **Server files, utilizing Express.**
     * `routes/` -  API routes, organized by the endpoint.
 * `index.js` - Entry point for running development server, or testing production build. Uses port `8080`.
 
