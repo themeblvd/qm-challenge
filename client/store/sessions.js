@@ -2,18 +2,18 @@ import axios from 'axios';
 
 // Intial State
 
-const initialState = [];
+const initialState = ''; // Normally an object; using string here to represent returned SQL query statment.
 
 // Action Types
 
-const GET_FOOS = 'GET_FOOS';
+const GET_SESSIONS = 'GET_SESSIONS';
 
 // Reducer
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case GET_FOOS:
-      return action.foos;
+    case GET_SESSIONS:
+      return action.sessions;
     default:
       return state;
   }
@@ -21,14 +21,14 @@ export default function reducer(state = initialState, action) {
 
 // Actions
 
-export function getFoos() {
+export function getSessions() {
   return dispatch => {
     axios
-      .get('/foos')
+      .get('/sessions')
       .then(response => {
         dispatch({
-          type: GET_FOOS,
-          foos: response.data
+          type: GET_SESSIONS,
+          sessions: response.data // Will be SQL query string statement.
         });
       })
       .catch(err => {

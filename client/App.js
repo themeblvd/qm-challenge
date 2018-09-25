@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import './assets/scss/main.scss'; // Must come before components.
 import { connect } from 'react-redux';
-import { getFoos } from './store/foos';
+import { getSessions } from './store/sessions';
 
 /**
- * MERN Application
- *
- * Here, we put the "R" in our MERN application.
- * Maybe describe some more stuff here when actually
- * using this boilerplate.
+ * Top-Level Application.
  */
 class App extends Component {
   /**
-   * Fetch "foos" from the API, when the
+   * Fetch "sessions" from the database, when the
    * component mounts.
+   *
+   * Note: In our example app, this will simply just
+   * be a string, representing an SQL query, opposed
+   * to an actual object of retrieved user sessions.
    */
   componentDidMount() {
-    this.props.getFoos();
+    this.props.getSessions();
   }
 
   /**
@@ -25,33 +25,17 @@ class App extends Component {
    * @return {Component}
    */
   render() {
-    const { foos } = this.props;
+    const { sessions } = this.props;
 
     return (
       <div className="app">
-        <header>
-          <h1>MERN Boilerplate</h1>
-        </header>
-        {foos.length ? (
-          <ul>
-            {foos.map(foo => {
-              return <li key={foo._id}>{foo.title}</li>;
-            })}
-          </ul>
-        ) : (
-          <p>There aren't any "foos" in the database yet.</p>
-        )}
-        <p>
-          Try a <code>POST</code> request via Postman to{' '}
-          <code>{'https://localhost:8080/foos'}</code> with a body like{' '}
-          <code>{'{"title": "My New Foo"}'}</code>.
-        </p>
+        <p>@TODO</p>
       </div>
     );
   }
 }
 
 export default connect(
-  state => ({ foos: state.foos }), // Lack of brevity for clarity, could be `({ ...state })`.
-  { getFoos }
+  state => ({ sessions: state.sessions }), // Lack of brevity for clarity, could be `({ ...state })`.
+  { getSessions }
 )(App);
