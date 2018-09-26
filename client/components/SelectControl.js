@@ -19,7 +19,7 @@ const SelectControl = props => {
 
   return (
     <div className="field select">
-      <span className="label">{selected ? selected.label : '-- Select Field --'}</span>
+      <span className="label">{selected ? selected.label : 'Select Field'}</span>
       <ul className="options">
         {options.map(option => {
           const { id, label } = option;

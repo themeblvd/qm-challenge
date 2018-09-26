@@ -79,7 +79,7 @@ class SearchParam extends Component {
     const reducers =
       selectedName && selectedName.type === 'string' ? stringReducers : numberReducers;
 
-    const prefix = selectedName && selectedName.type === 'number' ? 'is' : '';
+    const helper = selectedName && selectedName.type === 'number' ? 'is' : '';
 
     return (
       <div className="row">
@@ -94,10 +94,15 @@ class SearchParam extends Component {
             options={names}
             value={name}
             handleChange={this.handleSelect}
+            helper={helper}
           />
+          {helper && (
+            <div className="field helper">
+              <span className="field-helper">{helper}</span>
+            </div>
+          )}
           {name && (
             <Fragment>
-              {prefix && <span className="helper">{prefix}</span>}
               <SelectControl
                 field="reducer"
                 options={reducers}
@@ -116,7 +121,11 @@ class SearchParam extends Component {
             </Fragment>
           )}
         </div>
-        {isLast && <button onClick={addParam}>Add Search Parameter</button>}
+        {isLast && (
+          <button className="add-param" onClick={addParam}>
+            Add Search Parameter
+          </button>
+        )}
       </div>
     );
   }

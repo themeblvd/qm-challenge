@@ -1,0 +1,161 @@
+//
+// General
+//
+
+.field {
+  font-size: $field-font-size;
+  padding: 6px 4px;
+}
+
+//
+// Select Controls
+//
+
+.field.select {
+  display: flex;
+  position: relative;
+
+  .label {
+    background: $select-bg-color;
+    box-shadow: $field-shadow;
+    border: 1px solid $select-border-color;
+    border-radius: $field-border-radius;
+    color: $select-text-color;
+    cursor: pointer;
+    display: block;
+    line-height: $field-line-height;
+    min-width: $select-width;
+    padding: $field-padding;
+    padding-right: 30px; // Extra padding for icon.
+    position: relative;
+    transition: background-color 0.2s ease-out;
+  }
+  .label:before {
+    content: '';
+    background-image: $icon-down;
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 16px;
+  }
+  .options {
+    background: $field-active-bg-color;
+    border: 1px solid $select-border-color;
+    border-radius: $field-border-radius;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    position: absolute;
+    top: -9999px;
+    left: 4px; // Matches .field padding.
+    right: 4px; // Matches .field padding.
+    z-index: 100;
+  }
+  a {
+    color: $text-color;
+    font-size: 12px;
+    display: block;
+    padding: 12px;
+    transition: background-color 0.2s ease-out;
+    text-decoration: none;
+
+    &:hover {
+      background: $select-link-hover-bg-color;
+      color: darken($text-color, 20%);
+    }
+  }
+  &:hover {
+    .label {
+      background: $field-active-bg-color;
+      border-color: rgba($primary-color, 0.75);
+    }
+    .options {
+      top: 100%;
+    }
+  }
+}
+
+//
+// Range and Text Controls
+//
+
+.field.text,
+.field.range {
+  input {
+    background: $input-bg-color;
+    border: 1px solid $input-border-color;
+    border-radius: $field-border-radius;
+    box-shadow: $field-shadow;
+    color: $text-color;
+    font-size: $field-font-size;
+    display: block;
+    line-height: $field-line-height;
+    outline: none;
+    padding: $field-padding;
+  }
+  input:focus {
+    border-color: rgba($primary-color, 0.75);
+    outline: none;
+  }
+}
+.field.range {
+  display: flex;
+
+  .field-helper {
+    margin: 0 8px;
+  }
+  input {
+    max-width: 80px;
+  }
+}
+
+//
+// Remove Button
+//
+
+.field.remove {
+  button {
+    border: 1px solid transparent;
+    background-image: $icon-remove;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    border: 1px solid $border-color;
+    border-radius: $field-border-radius;
+    padding: $field-padding;
+    width: 36px;
+    height: 36px;
+    text-indent: -9999px;
+
+    &:hover {
+      border-color: #ccc;
+    }
+  }
+  button.inactive {
+    border-color: transparent;
+    cursor: default;
+    opacity: 0.25;
+
+    &:hover {
+      background-color: $btn-secondary-color;
+      border-color: transparent;
+    }
+  }
+}
+
+//
+// Field Helper
+//
+
+.field-helper {
+  background: $helper-bg-color;
+  border: 1px solid transparent; // Maintain equal height.
+  border-radius: $field-border-radius;
+  color: $helper-text-color;
+  display: block;
+  line-height: $field-line-height;
+  padding: $field-padding;
+}

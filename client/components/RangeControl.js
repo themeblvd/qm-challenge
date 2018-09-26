@@ -19,7 +19,7 @@ const RangeControl = props => {
   return (
     <div className="field range">
       <input type="number" value={min} name="min" onChange={handleChange} />
-      <span className="helper">and</span>
+      <span className="field-helper">and</span>
       <input type="number" value={max} name="max" onChange={handleChange} />
     </div>
   );

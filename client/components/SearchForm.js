@@ -26,19 +26,21 @@ class SearchForm extends Component {
     const { params, results } = this.props;
 
     return (
-      <form name="post" onSubmit={this.handleSubmit}>
-        {params.map((param, index) => {
-          return (
-            <SearchParam
-              key={`search-param-${index}`}
-              index={index}
-              isLast={index === params.length - 1}
-              {...param}
-            />
-          );
-        })}
+      <form className="search-form" onSubmit={this.handleSubmit}>
+        <div className="fields">
+          {params.map((param, index) => {
+            return (
+              <SearchParam
+                key={`search-param-${index}`}
+                index={index}
+                isLast={index === params.length - 1}
+                {...param}
+              />
+            );
+          })}
+        </div>
         {results && <p className="search-results">{results}</p>}
-        <button>Search</button>
+        <button className="button-primary">Search</button>
       </form>
     );
   }

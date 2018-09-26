@@ -1,1 +1,78 @@
-// Variables here...
+//
+// Typography
+//
+
+$font-size: 16px;
+$font-family: 'Poppins', sans-serif;
+$font-weight: 300;
+$line-height: 1.5;
+
+// Headings
+
+$heading-font-size: $font-size;
+$heading-font-weight: 600;
+$heading-line-height: 1.2;
+
+// Form Fields
+
+$field-font-size: 14px;
+$button-font-size: 12px;
+$button-font-weight: 600;
+
+//
+// Colors
+//
+
+$bg-color: #f7f7f7;
+$border-color: #ebebeb;
+
+// Branding
+
+$primary-color: #138eca;
+
+// Text
+
+$text-color: #4c4c4c;
+$heading-text-color: #7b7b7b;
+
+// Buttons
+
+$btn-primary-color: $primary-color;
+$btn-secondary-color: #f2f2f2;
+
+// Form Fields
+
+$form-border-color: #eee;
+$field-border-radius: 2px;
+$field-active-bg-color: #fff;
+
+$select-bg-color: #ebebeb;
+$select-text-color: darken($text-color, 20%);
+$select-border-color: #c4c4c4;
+$select-link-hover-bg-color: #f2f9fc;
+
+$input-bg-color: #fff;
+$input-border-color: #ddd;
+
+$helper-bg-color: #e9ebf2;
+$helper-text-color: #535c6f;
+
+//
+// Form Layout
+//
+
+$field-line-height: 18px;
+$field-padding: 8px 14px;
+$field-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.05);
+
+$select-width: 170px;
+
+//
+// Icons
+//
+
+$icon-down: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z" fill="#{$text-color}"/></svg>');
+
+$icon-remove: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" fill="#{$text-color}"/></svg>');
+
+$icon-add: url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-32 252c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92H92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z" fill="#{$text-color}"/></svg>');

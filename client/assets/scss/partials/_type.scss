@@ -1,3 +1,64 @@
+//
+// Base
+//
+
 body {
-  // ...
+  color: $text-color;
+  font-family: $font-family;
+  font-size: $font-size;
+  -webkit-font-smoothing: antialiased;
+  line-height: $line-height;
+}
+
+//
+// Headings
+//
+
+.page-title {
+  border-bottom: 2px solid $border-color;
+  color: $heading-text-color;
+  font-size: $heading-font-size;
+  font-weight: $heading-font-weight;
+  letter-spacing: 1px;
+  line-height: $heading-line-height;
+  margin-bottom: 0.85em;
+  padding: 0 10px 0.75em 10px;
+  text-transform: uppercase;
+}
+
+//
+// Buttons
+//
+
+button {
+  background: $btn-secondary-color;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $button-font-size;
+  font-weight: $button-font-weight;
+  letter-spacing: 1px;
+  line-height: 1;
+  padding: 15px 22px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transition: background-color 0.2s ease-out;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover {
+    background: darken($btn-secondary-color, 5%);
+    outline: none;
+  }
+}
+.button-primary {
+  background-color: $btn-primary-color;
+  color: #fff;
+
+  &:hover {
+    background: darken($btn-primary-color, 5%);
+    outline: none;
+  }
 }
