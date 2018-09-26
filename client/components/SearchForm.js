@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSessions } from '../store/sessions';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import SearchParam from './SearchParam';
 
 /**
@@ -28,18 +29,15 @@ class SearchForm extends Component {
 
     return (
       <form className="search-form" onSubmit={this.handleSubmit}>
-        <div className="fields">
+        <TransitionGroup className="fields">
           {params.map((param, index) => {
             return (
-              <SearchParam
-                key={`search-param-${index}`}
-                index={index}
-                isLast={index === params.length - 1}
-                {...param}
-              />
+              <CSSTransition key={`search-param-${index}`} timeout={250} classNames="shift">
+                <SearchParam index={index} isLast={index === params.length - 1} {...param} />
+              </CSSTransition>
             );
           })}
-        </div>
+        </TransitionGroup>
         {results && <p className="search-results">{results}</p>}
         <button className="button-primary">Search</button>
       </form>

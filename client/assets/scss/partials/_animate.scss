@@ -1,0 +1,21 @@
+//
+// Shift Animation
+//
+
+.row {
+  transform: translate(-4px, 0);
+  opacity: 0.01;
+  transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+
+  &:first-child,
+  &.shift-enter-active,
+  &.shift-enter-done,
+  &.shift-exit {
+    opacity: 1;
+    transform: none;
+  }
+  &.shift-exit-active {
+    transform: translate(-4px, 0);
+    opacity: 0.01;
+  }
+}
