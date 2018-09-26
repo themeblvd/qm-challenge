@@ -1,5 +1,7 @@
 # Quantum Metrics Exercise
 
+![Project Screenshot](https://raw.githubusercontent.com/themeblvd/qm-challenge/master/projects/qm-challenge/screenshot.png)
+
 ## Quick Start
 
 1. Clone this repository.
