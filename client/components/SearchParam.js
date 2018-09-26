@@ -35,6 +35,7 @@ class SearchParam extends Component {
   handleSelect = (event, field, value) => {
     const { updateParam, index } = this.props;
     event.preventDefault();
+    if (field === 'name') updateParam(index, 'reducer', ''); // Reset reducer when changing name.
     updateParam(index, 'value', ''); // Reset value when changing name or reducer.
     updateParam(index, field, value);
   };
@@ -102,24 +103,27 @@ class SearchParam extends Component {
             </div>
           )}
           {name && (
-            <Fragment>
-              <SelectControl
-                field="reducer"
-                options={reducers}
-                value={reducer}
-                handleChange={this.handleSelect}
-              />
-              {reducer === 'range' ? (
-                <RangeControl value={value} handleChange={this.handleRange} />
-              ) : (
-                <TextControl
-                  type={selectedName.type === 'string' ? 'text' : 'number'}
-                  value={value}
-                  handleChange={this.handleText}
-                />
-              )}
-            </Fragment>
+            <SelectControl
+              field="reducer"
+              options={reducers}
+              value={reducer}
+              handleChange={this.handleSelect}
+            />
           )}
+          {name &&
+            reducer && (
+              <Fragment>
+                {reducer === 'range' ? (
+                  <RangeControl value={value} handleChange={this.handleRange} />
+                ) : (
+                  <TextControl
+                    type={selectedName.type === 'string' ? 'text' : 'number'}
+                    value={value}
+                    handleChange={this.handleText}
+                  />
+                )}
+              </Fragment>
+            )}
         </div>
         {isLast && (
           <button className="add-param" onClick={addParam}>
