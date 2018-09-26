@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './assets/scss/main.scss';
 import { connect } from 'react-redux';
-import { getSessions } from './store/sessions';
 import SearchForm from './components/SearchForm';
 
 /**
