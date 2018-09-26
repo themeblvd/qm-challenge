@@ -36,10 +36,8 @@ export default function reducer(state = initialState, action) {
     case UPDATE_PARAM:
       const { index, field, value } = action;
       const newParams = [...state.params]; // Don't mutuate original state.
-      const newParam = newParams[index];
 
-      newParam[field] = value;
-      newParams[index] = newParam;
+      newParams[index][field] = value;
 
       return {
         ...state,
