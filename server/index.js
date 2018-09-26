@@ -4,15 +4,9 @@ import morgan from 'morgan';
 import path from 'path';
 import sessionsRouter from './routes/sessions';
 
-const port = 8080;
-
-// Initialize the Express app.
 const app = new Express();
-
-// Is this development mode?
+const port = 8080;
 const isDevMode = process.env.NODE_ENV === 'development' || false;
-
-// Determine static, client-side file path.
 const staticPath = isDevMode ? '../client/public' : '../dist/public';
 
 // Apply middleware.
