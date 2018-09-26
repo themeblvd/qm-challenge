@@ -10,6 +10,7 @@ sessionsRouter.get('/', (req, res) => {
   const params = req.query.predicates;
   const where = [];
   const numbers = ['screen_width', 'screen_height', 'visits'];
+  const errorMsg = "Oops! You didn't fill out all of the fields.";
 
   let query = `SELECT * FROM ${table}`;
 
@@ -19,8 +20,8 @@ sessionsRouter.get('/', (req, res) => {
     params.forEach(param => {
       let { name, reducer, value } = JSON.parse(param);
 
-      if (!reducer) {
-        return;
+      if (!name || !reducer || !value) {
+        return res.send(errorMsg);
       }
 
       switch (reducer) {
@@ -42,9 +43,9 @@ sessionsRouter.get('/', (req, res) => {
 
         case 'not_equals':
           if (numbers.includes(name)) {
-            where.push(`${name} <> ${value}`);
+            where.push(`${name} != ${value}`);
           } else {
-            where.push(`${name} <> '${value}'`);
+            where.push(`${name} != '${value}'`);
           }
           break;
 
