@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addParam } from '../store/sessions';
+import { getSessions } from '../store/sessions';
 import SearchParam from './SearchParam';
 
 /**
@@ -14,7 +14,7 @@ class SearchForm extends Component {
    */
   handleSubmit = event => {
     event.preventDefault();
-    // ... @TODO
+    this.props.getSessions();
   };
 
   /**
@@ -23,14 +23,20 @@ class SearchForm extends Component {
    * @return {Component}
    */
   render() {
-    const { params, results, addParam } = this.props;
+    const { params, results } = this.props;
 
     return (
       <form name="post" onSubmit={this.handleSubmit}>
         {params.map((param, index) => {
-          return <SearchParam key={`search-param-${index}`} index={index} {...param} />;
+          return (
+            <SearchParam
+              key={`search-param-${index}`}
+              index={index}
+              isLast={index === params.length - 1}
+              {...param}
+            />
+          );
         })}
-        <button onClick={addParam}>And</button>
         {results && <p className="search-results">{results}</p>}
         <button>Search</button>
       </form>
@@ -40,5 +46,5 @@ class SearchForm extends Component {
 
 export default connect(
   state => ({ ...state.sessions }),
-  { addParam }
+  { getSessions }
 )(SearchForm);

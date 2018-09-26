@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { updateParam, removeParam } from '../store/sessions';
+import { addParam, updateParam, removeParam } from '../store/sessions';
 import { names, stringReducers, numberReducers } from '../utils/options';
 import SelectControl from './SelectControl';
 import TextControl from './TextControl';
@@ -72,7 +72,7 @@ class SearchParam extends Component {
    * @return {Component}
    */
   render() {
-    const { index, name, reducer, value, handleSelect } = this.props;
+    const { index, name, reducer, value, handleSelect, isLast, addParam } = this.props;
 
     const selectedName = names.find(nameOption => nameOption.id === name);
 
@@ -83,32 +83,40 @@ class SearchParam extends Component {
 
     return (
       <div className="row">
-        <div className="field remove">
-          <button onClick={this.handleRemove} className={index === 0 ? 'inactive' : 'active'}>
-            Remove
-          </button>
-        </div>
-        <SelectControl field="name" options={names} value={name} handleChange={this.handleSelect} />
-        {name && (
-          <Fragment>
-            {prefix && <span className="helper">{prefix}</span>}
-            <SelectControl
-              field="reducer"
-              options={reducers}
-              value={reducer}
-              handleChange={this.handleSelect}
-            />
-            {reducer === 'range' ? (
-              <RangeControl value={value} handleChange={this.handleRange} />
-            ) : (
-              <TextControl
-                type={selectedName.type === 'string' ? 'text' : 'number'}
-                value={value}
-                handleChange={this.handleText}
+        <div className="wrap">
+          <div className="field remove">
+            <button onClick={this.handleRemove} className={index === 0 ? 'inactive' : 'active'}>
+              Remove
+            </button>
+          </div>
+          <SelectControl
+            field="name"
+            options={names}
+            value={name}
+            handleChange={this.handleSelect}
+          />
+          {name && (
+            <Fragment>
+              {prefix && <span className="helper">{prefix}</span>}
+              <SelectControl
+                field="reducer"
+                options={reducers}
+                value={reducer}
+                handleChange={this.handleSelect}
               />
-            )}
-          </Fragment>
-        )}
+              {reducer === 'range' ? (
+                <RangeControl value={value} handleChange={this.handleRange} />
+              ) : (
+                <TextControl
+                  type={selectedName.type === 'string' ? 'text' : 'number'}
+                  value={value}
+                  handleChange={this.handleText}
+                />
+              )}
+            </Fragment>
+          )}
+        </div>
+        {isLast && <button onClick={addParam}>Add Search Parameter</button>}
       </div>
     );
   }
@@ -116,5 +124,5 @@ class SearchParam extends Component {
 
 export default connect(
   null,
-  { updateParam, removeParam }
+  { addParam, updateParam, removeParam }
 )(SearchParam);
