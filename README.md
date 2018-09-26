@@ -1,13 +1,13 @@
 # Quantum Metrics Exercise
 
-![Project Screenshot](https://raw.githubusercontent.com/themeblvd/qm-challenge/master/projects/qm-challenge/screenshot.png)
+![Project Screenshot](https://raw.githubusercontent.com/themeblvd/qm-challenge/master/screenshot.png)
 
 ## Quick Start
 
 1. Clone this repository.
 2. Install the dependencies by running `npm install`.
 3. Run `npm run start` to start the development server and watch for changes.
-4. View development server at `http://localhost:8080`.
+4. View development server in your web browser at `http://localhost:8080`.
 
 ## Project Structure
 
@@ -41,10 +41,6 @@ Here are some additional commands that come in handy.
 * `npm run build:client` - Build the client-side files within `/dist` once.
 * `npm run build:server` - Build the server file within `/dist` once.
 * `npm run server:prod` - Start the production server, to test the final build (see note below).
-* `npm run format` - Apply stylistic code formatting to project's JavaScript files.
-* `npm run js-lint` - Check for JavaScript linting errors.
-* `npm run js-lint:fix` - Allow JavaScript linter to fix what it can, automatically.
-* `npm run report` - Generates `./report-client.txt` and `./report-server.txt` with stats about modules used.
 
 *Note: `npm run server` is helpful when working on just server files. It runs the development server without Webpack watching for changes on the client-side files. Because we transpile with babel on the fly during development, our ES6 server code will run without needing Webpack.*
 
