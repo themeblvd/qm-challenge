@@ -10,7 +10,6 @@ sessionsRouter.get('/', (req, res) => {
   const params = req.query.predicates;
   const where = [];
   const numbers = ['screen_width', 'screen_height', 'visits'];
-  const errorMsg = "Oops! You didn't fill out all of the fields.";
 
   let query = `SELECT * FROM ${table}`;
 
@@ -21,7 +20,7 @@ sessionsRouter.get('/', (req, res) => {
       let { name, reducer, value } = JSON.parse(params[i]);
 
       if (!name || !reducer || !value) {
-        return res.send(errorMsg);
+        return res.send("Oops! You didn't fill out all of the fields.");
       }
 
       switch (reducer) {
@@ -58,15 +57,18 @@ sessionsRouter.get('/', (req, res) => {
           break;
 
         case 'range':
+          if (value.min > value.max) {
+            return res.send('Oops! That is not a valid range.');
+          }
           where.push(`${name} >= ${value.min} AND ${name} <= ${value.max}`);
           break;
 
         case 'less':
-          where.push(`${name} <= ${value.min}`);
+          where.push(`${name} <= ${value}`);
           break;
 
         case 'greater':
-          where.push(`${name} >= ${value.min}`);
+          where.push(`${name} >= ${value}`);
           break;
       }
     }

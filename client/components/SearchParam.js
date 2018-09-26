@@ -64,7 +64,7 @@ class SearchParam extends Component {
         ? { ...newValue, min: event.target.value }
         : { ...newValue, max: event.target.value };
 
-    updateParam(index, 'value', range); // @TODO Should validate if proper range values.
+    updateParam(index, 'value', range);
   };
 
   /**
