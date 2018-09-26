@@ -14,7 +14,8 @@ class SearchForm extends Component {
    */
   handleSubmit = event => {
     event.preventDefault();
-    this.props.getSessions();
+    const { getSessions, params } = this.props;
+    getSessions(params);
   };
 
   /**

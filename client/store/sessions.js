@@ -87,10 +87,10 @@ export function removeParam(index) {
   };
 }
 
-export function getSessions(params) {
+export function getSessions(predicates) {
   return dispatch => {
     axios
-      .get('/sessions', params)
+      .get('/sessions', { params: { predicates } })
       .then(response => {
         dispatch({
           type: GET_SESSIONS,
