@@ -17,8 +17,8 @@ sessionsRouter.get('/', (req, res) => {
   if (params) {
     query += ' WHERE ';
 
-    params.forEach(param => {
-      let { name, reducer, value } = JSON.parse(param);
+    for (let i = 0; i < params.length; i++) {
+      let { name, reducer, value } = JSON.parse(params[i]);
 
       if (!name || !reducer || !value) {
         return res.send(errorMsg);
@@ -69,7 +69,7 @@ sessionsRouter.get('/', (req, res) => {
           where.push(`${name} >= ${value.min}`);
           break;
       }
-    });
+    }
 
     query += where.join(' AND ');
   }
