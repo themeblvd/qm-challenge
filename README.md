@@ -11,16 +11,16 @@
 
 ## Project Structure
 
+* `client/` - **Source files to build client-side React app.**
+    * `assets/` - Any images, SCSS files, etc.
+    * `components/` - React components.
+    * `store/` - Redux store files.
 * `public/` - **Compiled client-side React app from Webpack.**
     * `assets/` - Compiled assets for React app.
     * `index.html` - Root client-side HTML file.
 * `server/` - **Server files, utilizing Express.**
     * `routes/` -  API routes, organized by the endpoint.
     * `index.js` - Entry point for running development server, Uses port `8080`.
-* `src/` - **Source files to build client-side React app.**
-    * `assets/` - Any images, SCSS files, etc.
-    * `components/` - React components.
-    * `store/` - Redux store files.
 
 *Note: For simplification of the exercise, there's no production build for this project.*
 

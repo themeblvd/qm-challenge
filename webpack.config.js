@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: './src/index.js',
+  entry: './client/index.js',
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: './assets/js/app.js'
@@ -14,7 +14,7 @@ module.exports = {
       filename: './assets/css/main.css'
     }),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './client/index.html',
       inject: false
     })
   ],
