@@ -15,7 +15,7 @@ const sessionsRouter = new Router();
  */
 sessionsRouter.get('/', (req, res) => {
   const table = 'session';
-  const params = req.query.predicates;
+  const params = req.query.searchParams;
   const where = [];
   const numbers = ['screen_width', 'screen_height', 'visits'];
 
