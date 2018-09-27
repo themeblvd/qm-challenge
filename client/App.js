@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './assets/scss/main.scss';
-import { connect } from 'react-redux';
 import SearchForm from './components/SearchForm';
 
 const App = () => {
