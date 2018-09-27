@@ -11,37 +11,21 @@
 
 ## Project Structure
 
-* `dist/` - **Final build, for production.**
-    * `server.js` - Runs the server in production.
-    * `public/` - Contains client-side React app, served statically by `server.js`.
-* `client/` - **Client-side React app.**
-    * `assets/` - Images, SCSS files, etc.
-    * `components/` - React components.
-    * `store/` - Redux store files.
-    * `public/` - Compiled React app, for development.
+* `public/` - **Compiled client-side React app from Webpack.**
+    * `assets/` - Compiled assets for React app.
+    * `index.html` - Root client-side HTML file.
 * `server/` - **Server files, utilizing Express.**
     * `routes/` -  API routes, organized by the endpoint.
-* `index.js` - Entry point for running development server, or testing production build. Uses port `8080`.
+    * `index.js` - Entry point for running development server, Uses port `8080`.
+* `src/` - **Source files to build client-side React app.**
+    * `assets/` - Any images, SCSS files, etc.
+    * `components/` - React components.
+    * `store/` - Redux store files.
+
+*Note: For simplification of the exercise, there's no production build for this project.*
 
 ## Terminal Commands
 
-### Primary Commands
-
-These are the commands you'll use the most.
-
 * `npm run start` - Start the development server and watch for file changes.
-* `npm run build` - Build the entire, final `/dist` package for production.
-
-### Additional Commands
-
-Here are some additional commands that come in handy.
-
-* `npm run client` - Compile the development client-side files once.
-* `npm run server` - Start the development server (see note below).
-* `npm run build:client` - Build the client-side files within `/dist` once.
-* `npm run build:server` - Build the server file within `/dist` once.
-* `npm run server:prod` - Start the production server, to test the final build (see note below).
-
-*Note: `npm run server` is helpful when working on just server files. It runs the development server without Webpack watching for changes on the client-side files. Because we transpile with babel on the fly during development, our ES6 server code will run without needing Webpack.*
-
-*Note: `npm run server:prod` is helpful for testing the production build. On the actual production server, you'll want to run `/dist/server.js` with some sort of process manager, like [Forever](https://expressjs.com/en/advanced/pm.html#forever).*
+* `npm run build` - Build the client-side assets.
+* `npm run server` - Run the development server.

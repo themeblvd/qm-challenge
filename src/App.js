@@ -3,9 +3,6 @@ import './assets/scss/main.scss';
 import { connect } from 'react-redux';
 import SearchForm from './components/SearchForm';
 
-/**
- * Top-Level Application.
- */
 const App = () => {
   return (
     <div className="app">

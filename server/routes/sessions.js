@@ -1,9 +1,17 @@
-import { Router } from 'express';
+const { Router } = require('express');
 
 const sessionsRouter = new Router();
 
 /**
- * Handle GET requests.
+ * Handle GET requests to /sessions route.
+ *
+ * This is a more-or-less a simulation of
+ * passing the search parameters to query
+ * down a returned object of sessions.
+ *
+ * However, this function simply sends back
+ * a response with a generated SQL query
+ * as a string.
  */
 sessionsRouter.get('/', (req, res) => {
   const table = 'session';
@@ -81,4 +89,4 @@ sessionsRouter.get('/', (req, res) => {
   return res.send(query);
 });
 
-export default sessionsRouter;
+module.exports = sessionsRouter;

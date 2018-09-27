@@ -3,17 +3,8 @@
 # dependencies
 node_modules
 
-# reports
-report-client.txt
-report-server.txt
-
 # client
-client/public/*
-!client/public/README.md
-
-# build
-dist/*
-!dist/README.md
+public/*
 
 # misc
 .DS_Store
