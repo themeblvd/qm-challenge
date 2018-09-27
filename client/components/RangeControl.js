@@ -7,8 +7,8 @@ import React from 'react';
  * parameter.
  *
  * @param {Object}   props              Component properties.
- * @param {Object}   props.min          Current selected min value.
- * @param {Object}   props.max          Current selected max value.
+ * @param {number}   props.min          Current selected min value.
+ * @param {number}   props.max          Current selected max value.
  * @param {Function} props.handleChange Handle updating value when user selects value.
  */
 const RangeControl = props => {
