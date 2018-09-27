@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getSessions } from '../store/sessions';
+import { getSessions, reset } from '../store/sessions';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import SearchParam from './SearchParam';
 
@@ -17,6 +17,17 @@ class SearchForm extends Component {
     event.preventDefault();
     const { getSessions, params } = this.props;
     getSessions(params);
+  };
+
+  /**
+   * Reset the sessions state, clearing
+   * search params and results query.
+   *
+   * @param {Event} event
+   */
+  reset = event => {
+    event.preventDefault();
+    this.props.reset();
   };
 
   /**
@@ -40,6 +51,7 @@ class SearchForm extends Component {
         </TransitionGroup>
         {results && <p className="search-results">{results}</p>}
         <button className="button-primary">Search</button>
+        <button onClick={this.reset}>Reset</button>
       </form>
     );
   }
@@ -47,5 +59,5 @@ class SearchForm extends Component {
 
 export default connect(
   state => ({ ...state.sessions }),
-  { getSessions }
+  { getSessions, reset }
 )(SearchForm);

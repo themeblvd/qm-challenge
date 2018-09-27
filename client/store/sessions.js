@@ -19,6 +19,7 @@ const ADD_PARAM = 'ADD_PARAM';
 const UPDATE_PARAM = 'UPDATE_PARAM';
 const REMOVE_PARAM = 'REMOVE_PARAM';
 const GET_SESSIONS = 'GET_SESSIONS';
+const RESET = 'RESET';
 
 // Reducer
 
@@ -53,6 +54,14 @@ export default function reducer(state = initialState, action) {
       };
       break;
 
+    // Reset everything back to original state.
+    case RESET:
+      return {
+        params: [{ name: '', reducer: '', value: '' }],
+        results: ''
+      };
+      break;
+
     // Get sessions (i.e. would be search results from db)
     case GET_SESSIONS:
       return { ...state, results: action.sessions };
@@ -84,6 +93,12 @@ export function removeParam(index) {
   return {
     type: REMOVE_PARAM,
     index
+  };
+}
+
+export function reset() {
+  return {
+    type: RESET
   };
 }
 
