@@ -24,7 +24,7 @@ sessionsRouter.get('/', (req, res) => {
   if (params) {
     query += ' WHERE ';
 
-    for (let i = 0; i < params.length; i++) {
+    for (let i = 0; i < params.length; i++) { // Using loop instead of .forEach() so we can exit request, if needed.
       let { name, reducer, value } = JSON.parse(params[i]);
 
       if (!name || !reducer || !value) {
@@ -65,10 +65,10 @@ sessionsRouter.get('/', (req, res) => {
           break;
 
         case 'range':
-          if (value.min > value.max) {
-            return res.send('Oops! That is not a valid range.');
-          }
-          where.push(`${name} >= ${value.min} AND ${name} <= ${value.max}`);
+          let min = Number(value.min);
+          let max = Number(value.max);
+          if (min > max) return res.send('Oops! That is not a valid range.');
+          where.push(`${name} >= ${min} AND ${name} <= ${max}`);
           break;
 
         case 'less':
